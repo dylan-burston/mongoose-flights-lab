@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Flights</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/flights">All Flights</a>
+        <a href="/flights/new">Add Flight</a>
+    </nav>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Airline</th>
+                <th>Airport</th>
+                <th>Flight No</th>
+                <th>Departs</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (let flight of flights) { %>
+                <tr>
+                    <td><%=flight.airline%></td>
+                    <td><%=flight.airport%></td>
+                    <td><%=flight.flightNo%></td>
+                    <td><%=flight.departs%></td>
+                    <td><a href="/flights/<%=flight._id%>">See Details</a></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <a href="/"><button>Home</button></a>
+    <a href="/flights/new"><button>Add Flight</button></a>
+</body>
+</html>
