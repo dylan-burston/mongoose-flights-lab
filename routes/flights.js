@@ -6,6 +6,7 @@ let flightsCtrl = require("../controllers/flights.js")
 router.get('/', flightsCtrl.index)
 router.get('/new', flightsCtrl.newFlightForm);
 router.post('/', flightsCtrl.create)
+router.post('/:id/destinations', flightsCtrl.addDestination)
 router.get('/:id', flightsCtrl.show)
 
 module.exports = router;

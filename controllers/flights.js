@@ -2,7 +2,8 @@ module.exports = {
     index,
     newFlightForm,
     create,
-    show
+    show,
+    addDestination
 }
 
 const Flight = require('../models/flight') 
@@ -24,6 +25,15 @@ function create(req, res, next) {
 
 function show(req, res, next) {
     Flight.findById(req.params.id, function(err, flight) {
+        flight.destinations.sort(function(a, b) {return (a.arrival - b.arrival)})
         res.render('show', { flight });
     });
+}
+
+function addDestination(req, res, next) {
+    Flight.findById(req.params.id, function (err, flight) {
+        flight.destinations.push(req.body);
+        flight.save();
+        res.redirect(`/flights/${flight._id}`);
+    })
 }
