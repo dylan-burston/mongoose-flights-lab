@@ -42,7 +42,6 @@ function addDestination(req, res, next) {
 }
 
 function deleteDestination(req, res, next) {
-    console.log(req.params);
     Flight.findById(req.params.flightId, function (err, flight) {
         flight.destinations.splice(req.params.destinationId, 1);
         flight.save()
