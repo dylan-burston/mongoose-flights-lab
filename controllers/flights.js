@@ -42,9 +42,9 @@ function addDestination(req, res, next) {
 }
 
 function deleteDestination(req, res, next) {
-    console.log(req.params)
-    Flight.findById(req.params.flightId, function(err, flight) {
-        flight.destinations.splice(req.params.desinationId, 1);
+    console.log(req.params);
+    Flight.findById(req.params.flightId, function (err, flight) {
+        flight.destinations.splice(req.params.destinationId, 1);
         flight.save()
         res.redirect(`/flights/${flight._id}`);
     })
@@ -58,7 +58,11 @@ function addTicket(req, res, next) {
 }
 
 function showTickets(req, res, next){
-    Ticket.find({flight:req/params/id}, function(err, tickets) {
 
+
+
+
+    Ticket.find({flight:req/params/id}, function(err, tickets) {
+    
     });
 }
