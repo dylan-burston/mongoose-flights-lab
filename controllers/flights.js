@@ -55,13 +55,3 @@ function addTicket(req, res, next) {
     Ticket.create(ticket);
     res.redirect(`/flights/${req.params.id}`);
 }
-
-function showTickets(req, res, next){
-
-
-
-
-    Ticket.find({flight:req/params/id}, function(err, tickets) {
-    
-    });
-}
